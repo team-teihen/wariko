@@ -1,24 +1,31 @@
-# README
+# wariko
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- ここに何か素晴らしいことを書く
 
-Things you may want to cover:
+## 開発環境
 
-* Ruby version
+### 必要なもの
 
-* System dependencies
+- Docker
+- docker-compose
 
-* Configuration
+### セットアップ
 
-* Database creation
+```sh
+$ make prepare
+```
 
-* Database initialization
+### アプリの起動・停止・終了
 
-* How to run the test suite
+http://localhost:3000 で確認してね。
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+# 起動
+$ make up
 
-* Deployment instructions
+# 停止
+$ make stop
 
-* ...
+# 終了
+$ make down
+```
