@@ -1,0 +1,35 @@
+version: '3'
+services:
+  db:
+    image: postgres:11-alpine
+    expose:
+      - 5432
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+
+  devserver:
+    image: wariko:dev
+    command: bundle exec bin/webpack-dev-server
+    ports:
+      - '3035:3035'
+    volumes:
+      - .:/home/app/wariko
+      - bundle_gems:/usr/local/rvm/gems/ruby-2.6.3
+
+  wariko:
+    image: wariko:dev
+    build: .
+    ports:
+      - '3000:80'
+    volumes:
+      - .:/home/app/wariko
+      - bundle_gems:/usr/local/rvm/gems/ruby-2.6.3
+    links:
+      - db
+      - devserver
+    stdin_open: true
+    tty: true
+    env_file: wariko.env
+
+volumes:
+  bundle_gems:

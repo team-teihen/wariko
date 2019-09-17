@@ -22,3 +22,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore db data
+/pgdata
+
+# Ignore environment
+wariko.env
