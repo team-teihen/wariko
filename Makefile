@@ -39,3 +39,9 @@ stop:
 .PHONY: down
 down:
 	docker-compose down
+
+# bundle exec ... のヘルパー
+export command
+.PHONY: be
+be:
+	docker-compose run --rm devserver bundle exec $(command)

@@ -29,3 +29,21 @@ $ make stop
 # 終了
 $ make down
 ```
+
+### Rails系のコマンド実行
+
+```sh
+$ make be command='...'
+
+# e.g. controller
+$ make be command='rails g controller ...'
+
+# e.g. model
+$ make be command='rails g model ...'
+
+# e.g. routes
+$ make be command='rails routes'
+
+# Rspec (テスト)
+$ make be command='rspec'
+```
