@@ -1,9 +1,9 @@
 # 環境構築
 .PHONY: prepare
-prepare: .env env-build env-bundle-install config/webpacker.yml env-setup-db
+prepare: wariko.env env-build env-bundle-install config/webpacker.yml env-setup-db
 
 # 環境変数の有効化
-.env:
+wariko.env:
 	cp wariko.env.sample wariko.env
 
 # 利用するコンテナの作成
