@@ -41,7 +41,7 @@ down:
 	docker-compose down
 
 # bundle exec ... のヘルパー
-export command
+export cmd
 .PHONY: be
 be:
-	docker-compose run --rm devserver bundle exec $(command)
+	docker-compose run --rm wariko bundle exec $(cmd)
