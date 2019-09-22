@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_18_161610) do
+ActiveRecord::Schema.define(version: 2019_09_22_133500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "discussions", force: :cascade do |t|
+    t.text "content"
+    t.bigint "payment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["payment_id"], name: "index_discussions_on_payment_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer "value"
+    t.text "detail"
+    t.string "state"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_payments_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "user_id"
@@ -25,4 +43,6 @@ ActiveRecord::Schema.define(version: 2019_09_18_161610) do
     t.index ["partner_id"], name: "index_users_on_partner_id"
   end
 
+  add_foreign_key "discussions", "payments"
+  add_foreign_key "payments", "users"
 end
