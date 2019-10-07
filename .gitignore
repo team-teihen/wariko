@@ -35,3 +35,6 @@ wariko.env
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# ignore ER-diagram
+erd.pdf
